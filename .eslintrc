@@ -1,0 +1,50 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["react", "react-hooks"],
+  "rules": {
+    "no-plusplus": 0,
+    "func-names": ["error", "never"],
+    "react/jsx-uses-react": 2,
+    "react/destructuring-assignment": [0, { "extensions": [".jsx"] }],
+    "react/prefer-stateless-function": 0,
+    "no-unused-vars": 0,
+    "react/jsx-uses-vars": 2,
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "import/no-unresolved": "off",
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/mouse-events-have-key-events": 0,
+    "jsx-a11y/label-has-for": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "radix": 0,
+    "global-require": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+      "jsx": true
+    }
+  }
+}

@@ -5,6 +5,17 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          emitWarning: true,
+          configFile: './.eslintrc',
+          cache: false
+        }
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
@@ -15,7 +26,7 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   output: {
-    path: __dirname + '/dist',
+    path: `${__dirname}/dist`,
     publicPath: '/',
     filename: 'bundle.js'
   },
