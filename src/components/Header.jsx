@@ -1,6 +1,5 @@
-import React from 'react';
+import React from "react";
 
-// CommonJS use of Modules/Components
 const Header = ({ text }) => {
   return <h1>{text}</h1>;
 };
