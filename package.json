@@ -1,22 +1,22 @@
 {
-  "name": "react-v16",
+  "name": "react-advanced-game",
   "version": "1.0.0",
-  "description": "",
+  "description": "A game developed for React Advanced 2019 in London utilizing the latest and greatest in React",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bpitt259/react-v16.git"
+    "url": "git+https://github.com/Bpitt259/react-advanced-game.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bryan Pitt, Joe Watkins",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Bpitt259/react-v16/issues"
+    "url": "https://github.com/Bpitt259/react-advanced-game/issues"
   },
-  "homepage": "https://github.com/Bpitt259/react-v16#readme",
+  "homepage": "https://github.com/Bpitt259/react-advanced-game#readme",
   "dependencies": {
     "express": "^4.16.4"
   },

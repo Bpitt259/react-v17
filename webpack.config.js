@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -30,7 +31,13 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'React Advanced - Signal Game',
+      filename: 'dist/index.html'
+    })
+  ],
   devServer: {
     contentBase: './dist',
     hot: true
