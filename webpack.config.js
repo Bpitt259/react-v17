@@ -3,6 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
+  output: {
+    path: `${__dirname}/dist`,
+    publicPath: '/',
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
+  },
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+    port: 9000,
+  },
   module: {
     rules: [
       {
@@ -13,33 +24,24 @@ module.exports = {
         options: {
           emitWarning: true,
           configFile: './.eslintrc',
-          cache: false
-        }
+          cache: false,
+        },
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-      }
-    ]
+        use: ['babel-loader'],
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
-  },
-  output: {
-    path: `${__dirname}/dist`,
-    publicPath: '/',
-    filename: 'bundle.js'
+    extensions: ['*', '.js', '.jsx'],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      title: 'React Advanced - Signal Game',
-      filename: 'dist/index.html'
-    })
+      title: 'React V16',
+      filename: 'dist/index.html',
+    }),
   ],
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  }
 };

@@ -1,30 +1,6 @@
-import React, { Fragment, useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import Header, { Header2 } from "./components/Header.jsx";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const App = () => {
-  const [text, setText] = useState("");
+import App from './App';
 
-  useEffect(() => {
-    setText("Set the text state");
-  }, []);
-
-  const renderHeader = () => {
-    return (
-      <Fragment>
-        <Header text={text} />
-        <Header2 />
-      </Fragment>
-    );
-  };
-
-  return (
-    <Fragment>
-      {renderHeader()}
-      <p>Test P</p>
-    </Fragment>
-  );
-};
-
-ReactDOM.render(<App />, document.getElementById("app"));
-module.hot.accept();
+ReactDOM.render(<App />, document.getElementById('app'));

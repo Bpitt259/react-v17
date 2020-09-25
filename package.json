@@ -1,11 +1,9 @@
 {
+  "homepage": "https://github.com/Bpitt259/react-v16#readme",
   "name": "react-v16",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Bpitt259/react-v16"
@@ -16,10 +14,11 @@
   "bugs": {
     "url": "https://github.com/Bpitt259/react-advanced-game/issues"
   },
-  "homepage": "https://github.com/Bpitt259/react-v16#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "html-webpack-plugin": "^4.5.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -27,19 +26,43 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.6.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "eslint-plugin-styled-components": "^0.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
     "react-hot-loader": "^4.6.3",
     "webpack": "^4.29.0",
+    "webpack-bundle-analyzer": "^3.9.0",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "linting": "eslint . --ext .js,.jsx --cache",
+    "linting:fix": "npm run linting -- --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(html|json|md|yaml|yml|graphql|css|scss)": [
+      "prettier --write"
+    ],
+    "*.(js|jsx)": [
+      "npm run linting:fix"
+    ]
   }
 }
