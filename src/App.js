@@ -1,27 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import Header, { Header2 } from './components/Header';
+import React, { Suspense, useState } from 'react';
+import styled from 'styled-components';
+
+const Albums = React.lazy(() => import('./components/Albums'));
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+`;
+
+const HeaderContainer = styled.div`
+  align-self: center;
+  flex: 1 1 200px;
+  margin: 50px auto;
+`;
 
 const App = () => {
-  const [text, setText] = useState('');
-
-  useEffect(() => {
-    setText('Set the text state');
-  }, []);
-
-  const renderHeader = () => {
-    return (
-      <React.Fragment>
-        <Header text={text} />
-        <Header2 />
-      </React.Fragment>
-    );
-  };
+  const [loadComponents, setLoadComponents] = useState(false);
 
   return (
-    <React.Fragment>
-      {renderHeader()}
-      <p>Test P</p>
-    </React.Fragment>
+    <AppContainer>
+      <HeaderContainer>
+        <button type="button" onClick={() => setLoadComponents(true)}>
+          load artists
+        </button>
+      </HeaderContainer>
+
+      {loadComponents && (
+        <Suspense fallback={<div>Loading Albums...</div>}>
+          <Albums />
+        </Suspense>
+      )}
+    </AppContainer>
   );
 };
 

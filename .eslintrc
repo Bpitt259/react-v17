@@ -12,6 +12,7 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "no-console": "off",
     "prettier/prettier": ["error"],
     // React rules
     "react/destructuring-assignment": "off",

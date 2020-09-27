@@ -15,18 +15,21 @@
     "url": "https://github.com/Bpitt259/react-advanced-game/issues"
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "axios": "^0.20.0",
+    "dotenv": "^8.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.11.5",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "dotenv-webpack": "^3.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^4.2.0",
