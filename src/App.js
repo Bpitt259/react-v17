@@ -1,27 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import Header, { Header2 } from './components/Header';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import Gear from './components/Gear/Gear';
+import Synth from './components/Gear/Synth';
 
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 const App = () => {
-  const [text, setText] = useState('');
-
-  useEffect(() => {
-    setText('Set the text state');
-  }, []);
-
-  const renderHeader = () => {
-    return (
-      <React.Fragment>
-        <Header text={text} />
-        <Header2 />
-      </React.Fragment>
-    );
-  };
+  const [loadModules, setLoadModules] = useState(false);
 
   return (
-    <React.Fragment>
-      {renderHeader()}
-      <p>Test P</p>
-    </React.Fragment>
+    <AppContainer>
+      <div>
+        <button id="load-modules" onClick={() => setLoadModules(true)} type="button">
+          Load modules
+        </button>
+      </div>
+      {loadModules && (
+        <React.Fragment>
+          <Gear />
+          <Synth />
+        </React.Fragment>
+      )}
+    </AppContainer>
   );
 };
 
