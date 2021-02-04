@@ -1,4 +1,6 @@
 const webpack = require('webpack');
+
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -6,8 +8,7 @@ module.exports = {
   output: {
     path: `${__dirname}/dist`,
     publicPath: '/',
-    filename: '[name].bundle.js',
-    chunkFilename: '[name].bundle.js',
+    filename: '[name].[hash].bundle.js',
   },
   devServer: {
     contentBase: './dist',
@@ -38,10 +39,13 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      title: 'React V16',
-      filename: 'dist/index.html',
+      title: 'React V17',
+      filename: 'index.html',
+      template: 'src/index.html',
+      inject: 'body',
     }),
   ],
 };
