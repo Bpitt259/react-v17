@@ -1,18 +1,25 @@
-import { Fragment, useState, useEffect } from 'react';
-import Header from './components/Header';
+import styled from 'styled-components';
+import { StoreProvider, createStore } from 'easy-peasy';
+
+import model from './model';
+import List from './components/List';
+
+const store = createStore(model);
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const App = () => {
-  const [text, setText] = useState('');
-
-  useEffect(() => {
-    setText('Set the text state');
-  }, []);
-
   return (
-    <Fragment>
-      <Header text={text} />
-      <p>Test P</p>
-    </Fragment>
+    <StoreProvider store={store}>
+      <AppContainer>
+        <p>Test P</p>
+
+        <List />
+      </AppContainer>
+    </StoreProvider>
   );
 };
 
