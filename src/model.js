@@ -1,8 +1,14 @@
-import items from './data.json';
+import { action } from 'easy-peasy';
+import products from './products.json';
 
 export default {
-  test: {
-    items: 'test',
-  },
-  data: items,
+  products,
+  basket: [],
+  addToBasket: action((state, payload) => {
+    if (!payload.available) {
+      alert('item is not available');
+    } else {
+      state.basket.push(payload);
+    }
+  }),
 };

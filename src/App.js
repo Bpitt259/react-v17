@@ -15,8 +15,6 @@ const App = () => {
   return (
     <StoreProvider store={store}>
       <AppContainer>
-        <p>Test P</p>
-
         <List />
       </AppContainer>
     </StoreProvider>

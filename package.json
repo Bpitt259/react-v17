@@ -1,11 +1,6 @@
 {
-  "name": "react-v17",
-  "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Bpitt259/react-advanced-game/issues"
-  },
   "dependencies": {
     "easy-peasy": "^4.0.1",
     "react": "17.0.0",
