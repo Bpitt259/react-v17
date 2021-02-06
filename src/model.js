@@ -10,6 +10,7 @@ export default {
   itemsInCartCount: computed((state) => Object.values(state.cart).length),
 
   getProduct: computed((state) => (id) => state.products.items.find((product) => product.id == id)),
+  cartTotal: computed(({ cart }) => cart.reduce((res, curr) => res + parseInt(curr.price, 10), 0)),
 
   addToCart: action((state, payload) => {
     if (!payload.available) {
