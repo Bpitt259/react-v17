@@ -10,17 +10,12 @@ const ListContainer = styled.div`
 
 const List = () => {
   const products = useStoreState((state) => state.products.items);
-  const cart = useStoreState((state) => state.cart);
   const handleAddToCart = useStoreActions(({ addToCart }) => addToCart);
 
   return (
     <ListContainer>
       {products.map((product) => (
         <Product key={product.id} onClick={() => handleAddToCart(product)} product={product} />
-      ))}
-      Cart
-      {cart.map((item) => (
-        <div key={item.id}>{item.name}</div>
       ))}
     </ListContainer>
   );

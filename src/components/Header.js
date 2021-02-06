@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <NavLink to="/">Products</NavLink>
-      <div>CART: {itemsInCartCount}</div>
+      <NavLink to="/cart">CART: {itemsInCartCount}</NavLink>
     </HeaderContainer>
   );
 };

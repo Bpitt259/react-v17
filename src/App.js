@@ -6,6 +6,7 @@ import model from './model';
 import Header from './components/Header';
 import List from './components/List';
 import Details from './components/Details';
+import Cart from './components/Cart';
 
 const store = createStore(model);
 
@@ -19,11 +20,11 @@ const App = () => {
     <StoreProvider store={store}>
       <AppContainer>
         <Router>
-          {/* header outside of switch so it doesn't change with inner content */}
           <Header />
           <Switch>
             <Route exact path="/" component={List} />
             <Route path="/product/:id" component={Details} />
+            <Route path="/cart" component={Cart} />
           </Switch>
         </Router>
       </AppContainer>

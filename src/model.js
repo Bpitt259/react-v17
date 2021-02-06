@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-alert */
 import { action, computed } from 'easy-peasy';
@@ -16,5 +17,8 @@ export default {
     } else {
       state.cart.push(payload);
     }
+  }),
+  removeFromCart: action((state, payload) => {
+    state.cart = state.cart.filter((product) => product.id !== payload);
   }),
 };
