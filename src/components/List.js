@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { useStoreState, useStoreActions } from 'easy-peasy';
+import { useStoreState } from 'easy-peasy';
+import { Link } from 'react-router-dom';
 import Product from './Product';
 
 const ListContainer = styled.div`
@@ -10,12 +11,13 @@ const ListContainer = styled.div`
 
 const List = () => {
   const products = useStoreState((state) => state.products.items);
-  const handleAddToCart = useStoreActions(({ addToCart }) => addToCart);
 
   return (
     <ListContainer>
       {products.map((product) => (
-        <Product key={product.id} onClick={() => handleAddToCart(product)} product={product} />
+        <Link to={`product/${product.id}`}>
+          <Product key={product.id} product={product} />
+        </Link>
       ))}
     </ListContainer>
   );

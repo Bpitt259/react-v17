@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const ProductContainer = styled.div`
   display: flex;
@@ -14,7 +13,6 @@ const Product = ({ product, onClick }) => {
   return (
     <ProductContainer onClick={onClick}>
       {id} {name}
-      <Link to={`/product/${id}`}>Detail</Link>
     </ProductContainer>
   );
 };

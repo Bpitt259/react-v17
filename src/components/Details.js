@@ -1,9 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { useStoreState } from 'easy-peasy';
+import { useStoreState, useStoreActions } from 'easy-peasy';
 
 const Details = () => {
   const { id } = useParams();
   const product = useStoreState((state) => state.getProduct(id));
+  const handleAddToCart = useStoreActions(({ addToCart }) => addToCart);
 
   if (!product) return null;
   const { id: productId, name, brand, price, available, weight, options } = product;
@@ -41,6 +42,9 @@ const Details = () => {
           });
         })}
       </div>
+      <button type="button" onClick={() => handleAddToCart(product)}>
+        Add To Cart
+      </button>
     </div>
   );
 };
