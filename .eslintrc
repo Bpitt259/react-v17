@@ -37,7 +37,8 @@
     "func-names": "off",
     "no-plusplus": "off",
     "import/prefer-default-export": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "eqeqeq": "off"
   },
   "settings": {
     "import/resolver": {
