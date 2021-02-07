@@ -13,8 +13,6 @@ const Details = () => {
   const { id: productId, name, brand, price, available, weight, options } = productBuffer;
 
   const handleChangeOptions = (e) => {
-    console.log(e.target.value);
-
     setProductBuffer({
       ...productBuffer,
       [e.target.name]: e.target.value,
@@ -35,7 +33,6 @@ const Details = () => {
     </div>
   );
 
-  console.log(productBuffer);
   return (
     <div>
       <div>productId: {productId}</div>

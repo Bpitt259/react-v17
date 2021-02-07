@@ -3,36 +3,36 @@ import { useStoreState, useStoreActions } from 'easy-peasy';
 const Cart = () => {
   const cart = useStoreState((state) => state.cart);
   const cartTotal = useStoreState((state) => state.cartTotal);
-  const handleRemoveFromCart = useStoreActions(({ removeFromCart }) => removeFromCart);
 
-  const handleChangeQuantity = (e, productId) => {
-    console.log(e.target.value, productId);
-  };
+  const handleIncrementQuantity = useStoreActions(({ incrementQuantity }) => incrementQuantity);
+  const handleDecrementQuantity = useStoreActions(({ decrementQuantity }) => decrementQuantity);
+  const handleRemoveFromCart = useStoreActions(({ removeFromCart }) => removeFromCart);
 
   return (
     <div>
       {cart.map((product) => {
-        const quantity = cart.filter((p) => p.id == product.id).length;
         return (
           <div key={product.id} style={{ display: 'flex', justifyContent: 'space-evenly' }}>
             <div>{product.name}</div>
             <div>
               quantity:
               <input
-                style={{ width: '25px', marginLeft: '20px' }}
-                type="number"
+                style={{ width: '40px', marginLeft: '20px' }}
                 id="quantity"
                 name="quantity"
-                step="1"
-                value={quantity}
-                min="0"
-                max="10"
-                onChange={(e) => handleChangeQuantity(e, product.id)}
+                value={product.quantity || 0}
               />
             </div>
+            <button type="button" onClick={() => handleDecrementQuantity(product.id)}>
+              -
+            </button>
+            <button type="button" onClick={() => handleIncrementQuantity(product.id)}>
+              +
+            </button>
             <button type="button" onClick={() => handleRemoveFromCart(product.id)}>
               remove
             </button>
+            <div> product total: {product.total} </div>
           </div>
         );
       })}
