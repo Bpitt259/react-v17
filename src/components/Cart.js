@@ -14,6 +14,7 @@ const Cart = () => {
         return (
           <div key={product.id} style={{ display: 'flex', justifyContent: 'space-evenly' }}>
             <div>{product.name}</div>
+            <div>price: ${product.price}</div>
             <div>
               quantity:
               <input

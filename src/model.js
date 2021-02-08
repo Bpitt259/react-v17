@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable eqeqeq */
 /* eslint-disable no-alert */
-import { action, computed } from 'easy-peasy';
+import { action, computed, actionOn } from 'easy-peasy';
 import products from './products.json';
 
 const removeProduct = (data, id) => {
@@ -22,6 +22,18 @@ export default {
     const index = state.cart.findIndex((product) => product.id === payload.id);
     state.cart[index] = payload;
   }),
+
+  onCartUpdate: actionOn(
+    // listening to all of these actions to perform this update.
+    (actions) => [actions.decrementQuantity, actions.incrementQuantity, actions.removeFromCart],
+    (state, { payload }) => {
+      // we need to update the product in the cart with the new total.
+      const cartProduct = state.cart.find((p) => p.id === payload);
+      // current total = the price * (updated) quantity of that product.
+      cartProduct.total = cartProduct.quantity * parseInt(cartProduct.price, 10);
+      // after this happens, getTotal (computed) above, will update the cartTotal due to the cart state changing.
+    }
+  ),
 
   addToCart: action((state, payload) => {
     if (!payload.available) {
