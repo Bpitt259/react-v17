@@ -69,10 +69,6 @@ export default {
 
   incrementQuantity: action((state, payload) => {
     const cartProduct = state.cart.find((p) => p.id === payload);
-    // set max here for options
-    // if (cartProduct.options max quantity === cartProduct.quantity) {
-    //   return null;
-    // }
     cartProduct.quantity += 1;
   }),
 
